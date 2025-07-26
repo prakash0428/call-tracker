@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>Call Data</title></head>
+<body>
+  <h2>Call History Extracted</h2>
+  {% if call_data %}
+    <ul>
+      {% for l in call_data %}
+        <li>{{ l }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No call data found.</p>
+  {% endif %}
+  <a href="/">Upload again</a>
+</body>
+</html>
