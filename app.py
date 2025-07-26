@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import os
 from call_reader import extract_call_data
 
-app = Flask(_name_)
+app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
