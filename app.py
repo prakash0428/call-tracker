@@ -20,5 +20,5 @@ def upload_file():
     data = extract_call_data(path)
     return render_template('result.html', call_data=data)
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     app.run(debug=True)
