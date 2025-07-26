@@ -1,11 +1,57 @@
 <!DOCTYPE html>
 <html>
-<head><title>Upload PDF</title></head>
+<head>
+    <title>Call Statement Reader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        pre {
+            background-color: #f0f0f0;
+            padding: 10px;
+            white-space: pre-wrap;
+            border-radius: 5px;
+        }
+        .msg {
+            color: red;
+            font-weight: bold;
+        }
+        input[type="submit"] {
+            margin-top: 10px;
+        }
+    </style>
+</head>
 <body>
-  <h2>Upload Call History PDF</h2>
-  <form method="POST" action="/upload" enctype="multipart/form-data">
-    <input type="file" name="pdf_file" accept=".pdf" required />
-    <button type="submit">Upload</button>
-  </form>
+    <div class="container">
+        <h2>Upload Jio Call Statement (PDF)</h2>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".pdf" required>
+            <br>
+            <input type="submit" value="Upload">
+        </form>
+
+        {% if message %}
+            <p class="msg">{{ message }}</p>
+        {% endif %}
+
+        {% if call_data %}
+            <h3>📞 Extracted Call Data:</h3>
+            <pre>
+{% for line in call_data %}
+{{ line }}
+{% endfor %}
+            </pre>
+        {% endif %}
+    </div>
 </body>
 </html>
